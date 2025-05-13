@@ -45,7 +45,7 @@ public class Clase_String {
         }
         
         //saber posición de un caracter de una palabra
-        //char caracter = palabra1.charAt(0);
+        // char caracter = palabra1.charAt(0);
         //System.out.println("Primera letra de "+palabra1+ ":"+caracter);
         System.out.println("Primer caracter: "+palabra1.charAt(0));
         
