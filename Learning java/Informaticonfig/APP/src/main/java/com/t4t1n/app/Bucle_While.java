@@ -43,19 +43,16 @@ public class Bucle_While {
             System.out.println("Ingrese su contraseña...");
             String clave = entrada.next();
 
-            if(username.equals(usuario)) {
-                System.out.println("Usuario correcto!");
+            if(username.equals(usuario) && password.equals(clave)) {
+                System.out.println("ACCESO CORRECTO");
+                acceso = true;
             }else {
-                System.out.println("Error: usuario incorrecto");
-            }
-
-            if(password.equals(clave)) {
-                System.out.println("Contraseña correcta!");
-            }else {
-                System.out.println("Error: contraseña incorrecta");
+                System.out.println("USUARIO / CONTRASEÑA INCORRECTOS"+ "\n"
+                                    + "INTENTE DE NUEVO.");
             }
         }
 
+        System.out.println("Fin del bucle");
 
 
 
