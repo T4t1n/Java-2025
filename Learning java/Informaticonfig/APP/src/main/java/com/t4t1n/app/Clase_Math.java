@@ -40,7 +40,24 @@ public class Clase_Math {
         System.out.println(total + " redondear hacia arriba = " + Math.ceil(total));
 
         //numero aleatorio
-        double aleatorio = Math.random()*10;
+        double aleatorio = Math.round(Math.random()*10);
         System.out.println("valor aleatorio: " + aleatorio);
+
+        //funcion numero PI
+        System.out.println("Valor de pi: " + Math.PI);
+
+        //seno de un angulo
+        System.out.println("seno de un angulo de 90: " + Math.sin(90));
+
+        //coseno de un angulo
+        System.out.println("Coseno de un angulo de 180: " + Math.cos(180));
+
+        //logaritmo natural de un numero
+        var log = 100;
+        System.out.println("Logaritmo de: " + log + " = " + Math.log(log));
+
+        //logaritmo base 10 de un numero
+        var log10 = 100;
+        System.out.println("Logaritmo base 10 de: " +  log10 + " = " + Math.log10(log10));
     }
 }
