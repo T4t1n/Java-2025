@@ -1,4 +1,4 @@
-package com.t4t1n.app;
+package Arreglos;
 
 public class Arreglos_bucles {
     public static void main(String[] args) {

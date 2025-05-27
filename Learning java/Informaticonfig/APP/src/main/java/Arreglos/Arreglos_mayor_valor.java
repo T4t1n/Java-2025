@@ -1,4 +1,4 @@
-package com.t4t1n.app;
+package Arreglos;
 
 import java.util.Scanner;
 
