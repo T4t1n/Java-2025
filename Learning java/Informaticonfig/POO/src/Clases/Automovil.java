@@ -1,4 +1,9 @@
+package Clases;
+
+//Creacion de una clase
 class Automovil {
+
+    //Crear atributos para una clase
     String marca = "Honda";
     String modelo = "CRV";
     int anio = 2024;
@@ -12,6 +17,8 @@ class Automovil {
         //instaciar una clase / crear un objeto
         Automovil auto1 = new Automovil();
         Automovil auto2 = new Automovil();
+
+        //Consultar los valores de los objetos
         System.out.println("Marca: "+auto1.marca);
         auto1.marca="Camaro";
         System.out.println("Marca: "+auto1.marca);
