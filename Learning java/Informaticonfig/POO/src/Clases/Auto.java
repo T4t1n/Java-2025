@@ -1,8 +1,13 @@
 package Clases;
-    //Sobrecarga de metodos constructores
+import Clases.Alumnos;
+
+import java.util.Scanner; /* paquete util incorporado por java, tiene muchas clases */
+
+//Sobrecarga de metodos constructores
 class Auto {
     String marca, modelo;
     int anio;
+    Scanner entrada = new Scanner(System.in);
 
     //metodo 1 sin parametros
     public Auto(){
@@ -28,5 +33,8 @@ class Auto {
         auto1.MostrarInfo();
         Auto auto2 = new Auto("Honda");
         auto2.MostrarInfo();
+        Alumnos alumno1 = new Alumnos();
+        alumno1.nombre = "Manuel";
+        System.out.println("Nombre: " + alumno1.nombre);
     }
 }

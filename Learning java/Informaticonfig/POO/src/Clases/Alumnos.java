@@ -1,5 +1,6 @@
 package Clases;
 
+
 /*Metodo constructor*/
 /*
 Tipo especial de metodos que se utiliza para inicializar los objetos
