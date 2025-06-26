@@ -1,12 +1,20 @@
 package Clases;
 import Clases.Alumnos;
 
+/*
+* JDK tiene entorno de ejecucion o JRE, JDK contiene las bibliotecas
+* estandar que maneja practicamente todas las librerias de clases
+* y paquetes.
+*
+* */
+
 import java.util.Scanner; /* paquete util incorporado por java, tiene muchas clases */
 
 //Sobrecarga de metodos constructores
 class Auto {
     String marca, modelo;
     int anio;
+
     Scanner entrada = new Scanner(System.in);
 
     //metodo 1 sin parametros
