@@ -1,0 +1,18 @@
+Nombre: Marco chielline
+Color Favorito: Fusia
+
+Nombre: federico gatti
+Color Favorito: brown
+
+Nombre: Andrea cambiaso
+Color Favorito: golden
+
+Nombre: andre pirlo
+Color Favorito: dark
+
+Nombre: Pierre Kalulu
+Color Favorito: Red
+
+Nombre: Kenan Yildiz
+Color Favorito: Yellow
+
