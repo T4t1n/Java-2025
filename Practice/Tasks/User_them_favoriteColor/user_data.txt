@@ -16,3 +16,9 @@ Color Favorito: Red
 Nombre: Kenan Yildiz
 Color Favorito: Yellow
 
+Nombre: Thuram
+Color Favorito: violet
+
+Nombre: mckenie
+Color Favorito: green
+

@@ -3,15 +3,21 @@ package com.t4t1n.user_them_favoritecolor.recursos;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 
 /**
  *
  * @author Jaimisky
  */
-public class Archivo {
+public class Archivo implements Serializable{
     
     /* ########## Utilizando Buffered ########## */
     
@@ -58,6 +64,27 @@ public class Archivo {
 //            }
 //            reader.close();
         }catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    
+    
+    /* ########## Guardando el objeto del usuario completo ########## */
+    public static void saveObject(Usuario user){
+        try (ObjectOutputStream oos  = new ObjectOutputStream(new FileOutputStream("user_object.dat"))) {
+            oos.writeObject(user);
+            
+        }catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public static void leerObjeto() {
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("user_object.dat"))) {
+            Usuario u = (Usuario) ois.readObject();
+            System.out.println(u);
+        } catch(IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
