@@ -1,11 +1,13 @@
 
 package com.t4t1n.user_them_favoritecolor.recursos;
 
+import java.io.Serializable;
+
 /**
  *
  * @author cmjyt
  */
-public class Usuario {
+public class Usuario implements Serializable{
     String name;
     String favoriteColor;
     

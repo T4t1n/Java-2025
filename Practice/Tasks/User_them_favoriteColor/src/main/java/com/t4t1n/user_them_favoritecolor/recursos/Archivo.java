@@ -17,7 +17,7 @@ import java.io.Serializable;
  *
  * @author Jaimisky
  */
-public class Archivo implements Serializable{
+public class Archivo {
     
     /* ########## Utilizando Buffered ########## */
     

@@ -22,3 +22,18 @@ Color favorito: violet
 Nombre: mckenie
 Color favorito: green
 
+Nombre: Kompainers
+Color favorito: fusia
+
+Nombre: gullit
+Color favorito: morado
+
+Nombre: wirtz
+Color favorito: hell
+
+Nombre: dier
+Color favorito: white
+
+Nombre: bekham
+Color favorito: jul
+

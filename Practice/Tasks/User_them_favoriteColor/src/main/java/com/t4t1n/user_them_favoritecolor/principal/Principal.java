@@ -29,6 +29,7 @@ public class Principal {
             /*Inside of while to save in each loop*/
             Archivo.guardar(user);
             Archivo.guardarV2(user);
+            Archivo.saveObject(user);
         }
         
         
@@ -37,6 +38,7 @@ public class Principal {
     public void printInfo() {
         System.out.println(user.toString());
         Archivo.leer();
+        Archivo.leerObjeto();
     }
     
 }
