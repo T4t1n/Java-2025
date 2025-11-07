@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  *
@@ -47,6 +48,27 @@ public class FileManager {
         }
         
         
+    }
+    
+    public static void searchUser(String toSearch) {
+        try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream("users.dat"))) {
+            
+            ArrayList<User> readUsers = (ArrayList<User>) ois.readObject();
+            
+            Iterator <User> i = readUsers.iterator();
+            
+            while(i.hasNext()) {
+                User u = i.next();
+                if(u.getUserName().equalsIgnoreCase(toSearch)){
+                    System.out.println(u.toString());
+                } else {
+                    System.out.println("Not found");
+                }
+            }
+            
+        } catch(IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
     
 }

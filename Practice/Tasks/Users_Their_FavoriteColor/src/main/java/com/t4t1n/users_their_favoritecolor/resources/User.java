@@ -35,4 +35,9 @@ public class User implements Serializable{
     public void setFavoriteColor(String favoriteColor) {
         this.favoriteColor = favoriteColor;
     }
+    
+     @Override
+    public String toString() {
+        return "Name: " + getUserName() + " Favorite color: " + getFavoriteColor();
+    }
 }
