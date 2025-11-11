@@ -1,22 +1,25 @@
 package Recursos;
 
+
 public class Estudiante {
 
-    private String nota;
+    private double nota;
 
     public Estudiante() {
 
     }
 
-    public Estudiante(String nota) {
+    public Estudiante(double nota) {
         this.nota = nota;
     }
 
-    public String getNota(){
+    public double getNota(){
         return this.nota;
     }
 
-    public void setNota(String nota) {
-        this.nota = nota;
+    public void setNota(double nota) {
+
+            this.nota = nota;
+
     }
 }
