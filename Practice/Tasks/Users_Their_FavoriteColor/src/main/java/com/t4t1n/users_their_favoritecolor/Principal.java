@@ -26,12 +26,14 @@ public class Principal {
     
         public static void menu(){
         System.out.println("""
+                           
                             ########## Welcome to the TatinApp ##########
                            
                             1.Add user
                             2.Show users
                             3.Search user
-                            4.Exit
+                            4.Delete user
+                            5.Exit
                            """);
         option = sc.nextLine();
         
@@ -42,12 +44,9 @@ public class Principal {
         switch(option) {
             case "1" -> addUser();
             case "2" -> FileManager.readFile();
-            case "3" -> {
-                System.out.println("Input the user's name: ");
-                String toSearch = sc.nextLine();
-                FileManager.searchUser(toSearch);
-            }
-            case "4" -> System.exit(0);
+            case "3" -> FileManager.searchUser();
+            case "4" -> FileManager.deleteUser();
+            case "5" -> System.exit(0);
             
             default -> {
                 System.err.println("Error: Unknown command: " + option);
