@@ -33,7 +33,8 @@ public class Principal {
                             2.Show users
                             3.Search user
                             4.Delete user
-                            5.Exit
+                            5.Update user
+                            6.Exit
                            """);
         option = sc.nextLine();
         
@@ -46,7 +47,8 @@ public class Principal {
             case "2" -> FileManager.readFile();
             case "3" -> FileManager.searchUser();
             case "4" -> FileManager.deleteUser();
-            case "5" -> System.exit(0);
+            case "5" -> FileManager.updateUser();
+            case "6" -> System.exit(0);
             
             default -> {
                 System.err.println("Error: Unknown command: " + option);

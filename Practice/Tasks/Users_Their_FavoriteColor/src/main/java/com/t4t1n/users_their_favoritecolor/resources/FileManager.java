@@ -82,7 +82,7 @@ public class FileManager {
     }
     
     public static void deleteUser(){
-        System.out.println("Input the user's name that you wanna delete: ");
+        System.out.println("Input the user's name that you want to delete: ");
         String toDelete = sc.nextLine();
         
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("users.dat"))){
@@ -120,6 +120,55 @@ public class FileManager {
             
             
         } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public static void updateUser() {
+        System.out.println("Input the user's name that you want to update: ");
+        String toUpdate = sc.nextLine();
+        
+        try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream("users.dat"))){
+            ArrayList<User> readUsers = (ArrayList<User>) ois.readObject();
+            Iterator <User> i = readUsers.iterator();
+            
+            boolean found = false;
+            
+            while(i.hasNext()) {
+                User u = i.next();
+                
+                if(u.getUserName().equalsIgnoreCase(toUpdate)) {
+                    found = true;
+                    System.out.println("User found -> " + u.toString());
+                    
+                    System.out.println("Input de new color's user: ");
+                    String newColor = sc.nextLine();
+                    
+                    u.setFavoriteColor(newColor);
+                    
+                    File myObj = new File("users.dat");
+                    myObj.delete();
+                    
+                    try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("users.dat"))){
+                        oos.writeObject(readUsers);
+                        oos.close();
+                        
+                        
+                    }catch(IOException e){
+                        e.printStackTrace();
+                        
+                    }
+                    
+                    System.out.println("Succefully updated"); 
+                }
+            }
+            
+            if(!found) {
+                System.out.println("Not found");
+            }
+            
+            
+        }catch(IOException | ClassNotFoundException e){
             e.printStackTrace();
         }
     }
