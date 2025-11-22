@@ -1,7 +1,7 @@
 
 package com.t4t1n.users_their_favoritecolor.resources;
 
-import java.io.File;
+
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -22,33 +22,25 @@ public class FileManager {
     public static void saveUser(User newUsers) {
         ArrayList<User> users = new ArrayList<>();
         
-        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("users.dat"))) {
-            users = (ArrayList<User>) ois.readObject();
-        } catch (Exception e) {
-            
-        }
+        
+            users = loadUsers();
+        
         
         users.add(newUsers);
         
-        try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("users.dat"))) {
-            oos.writeObject(users);
-            oos.close();
-            
-        }catch(IOException e) {
-            e.printStackTrace();
-        }
+        saveUsers(users);
     }
     
     
     public static void readFile(){
-        try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream("users.dat"))) {
-            ArrayList<User> readUsers = (ArrayList<User>) ois.readObject();
+        try {
+            ArrayList<User> readUsers = loadUsers();
             
              for(User user : readUsers) {
                 System.out.println("Name: " + user.getUserName() + " Favorite color: " + user.getFavoriteColor());
             }
-        }catch(IOException | ClassNotFoundException e) {
-            e.printStackTrace();
+        }catch(Exception e) {
+            System.out.println("No users saved yet");
         }
         
         
@@ -57,9 +49,9 @@ public class FileManager {
     public static void searchUser() {
         System.out.println("Input the user's name: ");
         String toSearch = sc.nextLine();
-        try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream("users.dat"))) {
+        try {
             
-            ArrayList<User> readUsers = (ArrayList<User>) ois.readObject();
+            ArrayList<User> readUsers = loadUsers();
             
             Iterator <User> i = readUsers.iterator();
             
@@ -76,7 +68,7 @@ public class FileManager {
                     System.out.println("Not found"); 
                 }
             
-        } catch(IOException | ClassNotFoundException e) {
+        } catch(Exception e) {
             e.printStackTrace();
         }
     }
@@ -85,8 +77,8 @@ public class FileManager {
         System.out.println("Input the user's name that you want to delete: ");
         String toDelete = sc.nextLine();
         
-        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("users.dat"))){
-               ArrayList<User> readUsers = (ArrayList<User>) ois.readObject();
+        try {
+               ArrayList<User> readUsers = loadUsers();
             
             Iterator <User> i = readUsers.iterator();
             
@@ -99,16 +91,10 @@ public class FileManager {
                    
                    i.remove();
                    
-                   File myObj = new File("users.data");
-                   myObj.delete();
+                   //File myObj = new File("users.data");
+                   //myObj.delete();
                    
-                   try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("users.dat"))) {
-                    oos.writeObject(readUsers);
-                    oos.close();
-            
-                   }catch(IOException e) {
-                    e.printStackTrace();
-                   }
+                   saveUsers(readUsers);
                    
                     System.out.println("Succesfully delete!");
                 }
@@ -119,7 +105,7 @@ public class FileManager {
                 }
             
             
-        } catch (IOException | ClassNotFoundException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -128,8 +114,8 @@ public class FileManager {
         System.out.println("Input the user's name that you want to update: ");
         String toUpdate = sc.nextLine();
         
-        try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream("users.dat"))){
-            ArrayList<User> readUsers = (ArrayList<User>) ois.readObject();
+        try{
+            ArrayList<User> readUsers = loadUsers();
             Iterator <User> i = readUsers.iterator();
             
             boolean found = false;
@@ -146,18 +132,10 @@ public class FileManager {
                     
                     u.setFavoriteColor(newColor);
                     
-                    File myObj = new File("users.dat");
-                    myObj.delete();
+                    //File myObj = new File("users.dat"); **** new FileOutputStream("users.dat") already replaces the file completely.
+                   // myObj.delete();                     **** So deleting is unnecessary
                     
-                    try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("users.dat"))){
-                        oos.writeObject(readUsers);
-                        oos.close();
-                        
-                        
-                    }catch(IOException e){
-                        e.printStackTrace();
-                        
-                    }
+                   saveUsers(readUsers);
                     
                     System.out.println("Succefully updated"); 
                 }
@@ -168,7 +146,27 @@ public class FileManager {
             }
             
             
-        }catch(IOException | ClassNotFoundException e){
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+    
+    
+    /* Useful Methods*/
+    
+    public static ArrayList<User> loadUsers() {
+        try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream("users.dat"))) {
+            return (ArrayList<User>) ois.readObject();
+        }catch(IOException | ClassNotFoundException e) {
+            return new ArrayList<>();
+        }
+    }
+    
+    public static void saveUsers(ArrayList<User> users) {
+        try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("users.dat"))){
+            oos.writeObject(users);
+            oos.close();
+        }catch (IOException e) {
             e.printStackTrace();
         }
     }

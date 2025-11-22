@@ -85,7 +85,7 @@ public class Principal {
                     wantContinue = sc.nextLine();
                 }
        
-            }while(!wantContinue.equalsIgnoreCase("n") && !wantContinue.equalsIgnoreCase("y"));
+            }while(!wantContinue.equalsIgnoreCase("n") && !wantContinue.equalsIgnoreCase("y")); // can be improved using: while (!wantContinue.matches("(?i)[yn]"))
             
             
            
