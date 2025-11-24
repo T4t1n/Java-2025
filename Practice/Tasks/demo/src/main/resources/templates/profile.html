@@ -2,14 +2,38 @@
 <html xmlns:th="http://wwww.thymeleaf.org" >
 <head>
     <title>Profile | Demo</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" media="all" href=".../.../styles.css" th:href="@{/styles.css}" />
+
 </head>
 <body>
+
+
+    <header class="header">
+        <nav class="contenedor_menu container-sm">
+            <a th:href="@{/}"  class="logo">DemoApp</a>
+            <ul>
+                <li> <a th:href="@{/}" >Inicio</a></li>
+                <li><a th:href="@{/profile}" class="page_active" >Profile</a></li>
+                <li><a th:href="@{/contact}">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
     <h1>Your Profile</h1>
     <p><strong>Name:</strong> <span th:text="${name}"></span></p>
     <p><strong>Favorite Color:</strong> <span th:text="${color}"></span></p>
     <p><strong>About:</strong><span th:text="${Description}"></span></p>
 
     <a th:href="@{/}">Back to Home</a>
+
+
+
+    <footer>
+        <p>
+            &copy; 2025 Jaimisk Cellez
+        </p>
+    </footer>
 
 </body>
 </html>
