@@ -18,7 +18,7 @@ public class MainController {
     public String profile(Model model) {
         model.addAttribute("name", "Tatin Cellez");
         model.addAttribute("color", "Blue");
-        model.addAttribute("Description", "I'm learning Spring Boot and Thymeleaf!");
+        model.addAttribute("description", "I'm learning Spring Boot and Thymeleaf!"); /*Model attributes should star with lowercase: description not Desc....*/
 
         return "profile";
     }
@@ -29,7 +29,7 @@ public class MainController {
     }
     @PostMapping("/contact")
     public String submitForm(Model model) {
-        model.addAttribute("Succesfully", "Thank you");
+        model.addAttribute("succes", "Thank you");
         return "contact";
     }
 }
