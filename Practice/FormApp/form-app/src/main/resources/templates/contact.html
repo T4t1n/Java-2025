@@ -6,14 +6,17 @@
 </head>
 <body>
 
-    <form th:action="@/contact}" th:object="${contactForm}" method="post">
+    <form th:action="@{/contact}" th:object="${contactForm}" method="post">
         <label>Name</label>
         <input type="text" th:field="*{name}" placeholder="Your name" />
 
         <label>Email</label>
-        <input type="email" th:fiel="*{email}" placeholder="Your email">
+        <input type="email" th:field="*{email}" placeholder="Your email">
 
-        
+        <label>Message</label>
+        <textarea th:field="*{message}" placeholder="Your message"></textarea>
+
+        <button type="submit">Send</button>
     </form>
 
 </body>
