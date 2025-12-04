@@ -10,7 +10,7 @@
     <form th:action="@{/contact}" th:object="${contactForm}" method="POST">
         <label>Name</label>
         <input type="text" th:field="*{name}" placeholder="Your name" />
-        <div th:if="${#fields.hasErrors('name')}" th:errors="*{name"></div>
+        <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
 
         <label>Email</label>
         <input type="email" th:field="*{email}" placeholder="Your email">
