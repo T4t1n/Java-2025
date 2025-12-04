@@ -10,12 +10,15 @@
     <form th:action="@{/contact}" th:object="${contactForm}" method="POST">
         <label>Name</label>
         <input type="text" th:field="*{name}" placeholder="Your name" />
+        <div th:if="${#fields.hasErrors('name')}" th:errors="*{name"></div>
 
         <label>Email</label>
         <input type="email" th:field="*{email}" placeholder="Your email">
+        <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
 
         <label>Message</label>
         <textarea th:field="*{message}" placeholder="Your message"></textarea>
+        <div th:if="${#fields.hasErrors('message')}" th:errors="*{message}"></div>
 
         <button type="submit">Send</button>
     </form>
