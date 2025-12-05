@@ -3,6 +3,7 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/styles.css}"/>
     <title>ContactForm</title>
 </head>
 <body>
@@ -14,7 +15,7 @@
 
         <label>Email</label>
         <input type="email" th:field="*{email}" placeholder="Your email">
-        <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+        <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="error"></div>
 
         <label>Message</label>
         <textarea th:field="*{message}" placeholder="Your message"></textarea>
