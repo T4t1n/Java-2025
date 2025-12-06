@@ -1,5 +1,4 @@
-package forms;
-
+package demo_form;
 
 import jakarta.validation.constraints.*;
 
@@ -9,10 +8,10 @@ public class ContactForm {
     private String name;
 
     @Email(message = "Must be a valid email")
-    @NotBlank(message= "Email is required")
+    @NotBlank(message = "Email is requerid")
     private String email;
 
-    @Size(min = 10, message = "Message must be at least 10 characters long")
+    @Size(min = 10, message = "Message must be at leat 10 characters long")
     private String message;
 
     public String getName() {
@@ -35,7 +34,7 @@ public class ContactForm {
         return message;
     }
 
-    public void setMessage() {
+    public void setMessage(String message) {
         this.message = message;
     }
 }
