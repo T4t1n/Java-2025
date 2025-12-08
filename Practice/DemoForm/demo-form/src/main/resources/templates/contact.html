@@ -3,30 +3,31 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <link rel="stylesheet" th:href="@{/styles.css}">
     <title>ContactForm</title>
 </head>
 <body>
+<section class="contactus">
+
 
     <form th:action="@{/contact}" th:object="${contactForm}" method="post">
-
-
-        <div>
-            <label>Name</label>
-            <input type="text" th:field="*{name}" placeholder="Your name" />
-            <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+        <h2>Contact Us</h2>
+        <div  class="data_input">
+            <label for="name">Name</label>
+            <input id="name" type="text" th:field="*{name}" placeholder="Your name" />
+            <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="warning"></div>
         </div>
 
-        <div>
-            <label>Email</label>
-            <input type="email" th:field="*{email}" placeholder="Your email" />
-            <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+        <div class="data_input">
+            <label for="email">Email</label>
+            <input id="email" type="email" th:field="*{email}" placeholder="Your email" />
+            <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="warning"></div>
         </div>
 
-        <div>
-            <label>Message</label>
-            <textarea th:field="*{message}" placeholder="Your message"></textarea>
-            <div th:if="${#fields.hasErrors('message')}" th:errors="*{message}"></div>
+        <div class="data_input">
+            <label for="message">Message</label>
+            <textarea id="message" th:field="*{message}" placeholder="Your message"></textarea>
+            <div th:if="${#fields.hasErrors('message')}" th:errors="*{message}" class="warning"></div>
         </div>
 
 
@@ -35,7 +36,7 @@
 
         <button type="submit">Send</button>
     </form>
-
+</section>
 
     <p th:text="${contactForm.message}"></p>
 </body>
