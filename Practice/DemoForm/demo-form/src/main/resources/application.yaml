@@ -1,3 +1,16 @@
 spring:
   application:
-    name: demo-form
+    name: demo-form        # Nombre de la aplicación
+
+  datasource:
+    url: jdbc:h2:mem:demoform   # Base H2 en memoria llamada 'demoform'
+    driver-class-name: org.h2.Driver
+    username: sa
+
+  jpa:
+    hibernate:
+      ddl-auto: update           # Crea/actualiza tablas automáticamente según las entidades
+
+  h2:
+    console:
+      enabled: true

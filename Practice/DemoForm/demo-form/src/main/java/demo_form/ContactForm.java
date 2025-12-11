@@ -1,9 +1,17 @@
 package demo_form;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 import jakarta.validation.constraints.*;
 
+
+@Entity
 public class ContactForm {
 
+    @Id
+    @GeneratedValue
+    private Long id;
     @NotBlank(message = "*Name is required")
     private String name;
 
