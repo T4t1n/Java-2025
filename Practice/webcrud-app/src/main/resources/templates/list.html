@@ -6,16 +6,16 @@
 </head>
 <body>
     <h1>Player List</h1>
-    <a>Add New Player</a>
+    <a th:href="@{/add}">Add New Player</a>
     <table>
         <tr>
             <th>Name</th>
             <th>Description</th>
             <th>Actions</th>
         </tr>
-        <tr th:each="item : ${items}">
-            <td th:text="${item.name}"></td>
-            <td th:text="${item.description}"></td>
+        <tr th:each="player: ${players}">
+            <td th:text="${player.name}"></td>
+            <td th:text="${player.description}"></td>
             <td>
                 <a>Edit</a>
                 <a>Delete</a>
