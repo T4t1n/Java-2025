@@ -8,7 +8,17 @@
 <body>
 <section class="jugadores">
     <article class="jugador">
-        <img src="" alt="">
+        <img th:src="@{https://img.a.transfermarkt.technology/portrait/header/301238-1730125609.jpg?lm=1}" alt="">
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+            </tr>
+            <tr th:each="contact : ${contacts}">
+                <td th:text="${contact.name}"></td>
+                <td th:text="${contact.email}"></td>
+            </tr>
+        </table>
     </article>
 </section>
 

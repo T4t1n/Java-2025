@@ -18,6 +18,13 @@ public class ContactController {
         this.contactFormRepository = contactFormRepository;
     }
 
+
+    @GetMapping("/")
+    public String listItems(Model model) {
+        model.addAttribute("contacts", contactFormRepository.findAll());
+        return "jugadores";
+    }
+
     @GetMapping("/contact")
     public String showForm(Model model) {
         model.addAttribute("contactForm", new ContactForm());
