@@ -3,24 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Add Player</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
 </head>
 <body>
-    <h1>Add New Player</h1>
-    <form th:action="@{/add}" th:object="${player}" method="post">
-        <label>Name: </label>
-        <input type="text" th:field="*{name}" />
+    <main class="container-main container-with-smallcontent">
+        <section class="container-section">
+            <h1>Add New Player</h1>
+            <form th:action="@{/add}" th:object="${player}" method="post" class="form">
+                <label>Name: </label>
+                <input type="text" th:field="*{name}" />
 
-        <br>
+                <br>
 
-        <label>Description:</label>
-        <input type="text" th:field="*{description}" />
+                <label>Description:</label>
+                <input type="text" th:field="*{description}" />
 
-        <br>
+                <br>
 
-        <button type="submit">Save</button>
+                <button type="submit" class="button">Save</button>
 
-    </form>
+            </form>
 
-    <a th:href="@{/}">Back to List</a>
+            <a th:href="@{/}" class="button_link">Back to List</a>
+        </section>
+    </main>
 </body>
 </html>

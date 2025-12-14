@@ -9,7 +9,7 @@
 <main class="container-main">
     <section class="container-section">
         <h1>Player List</h1>
-        <a th:href="@{/add}">Add New Player</a>
+        <a th:href="@{/add}" class="button_link">Add New Player</a>
         <table>
             <tr>
                 <th>Name</th>
@@ -20,8 +20,9 @@
                 <td th:text="${player.name}"></td>
                 <td th:text="${player.description}"></td>
                 <td>
-                    <a th:href="@{|/edit/${player.id}|}">Edit</a>
-                    <a th:href="@{|/delete/${player.id}|}">Delete</a>
+                    <a th:href="@{|/edit/${player.id}|}" class="button_link">Edit</a>
+                    <p>-</p>
+                    <a th:href="@{|/delete/${player.id}|}" class="button_link">Delete</a>
                 </td>
 
             </tr>

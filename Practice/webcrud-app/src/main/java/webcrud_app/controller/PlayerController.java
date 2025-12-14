@@ -39,4 +39,11 @@ public class PlayerController {
         model.addAttribute("player", player);
         return "update-item";
     }
+
+    @PostMapping("/update/{id}")
+    public String updatePlayer(@PathVariable("id") long id, Player player) {
+        player.setId(id);
+        playerRepository.save(player);
+        return "redirect:/";
+    }
 }
