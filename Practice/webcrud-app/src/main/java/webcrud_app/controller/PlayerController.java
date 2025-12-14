@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.stereotype.Controller;
 import webcrud_app.Player;
+import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
 public class PlayerController {
@@ -30,4 +31,12 @@ public class PlayerController {
         return "redirect:/";
     }
 
+
+    @GetMapping("/edit/{id}")
+    public String showUpdateForm(@PathVariable("id") long id, Model model){
+        Player player = playerRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid item Id: " + id));
+        model.addAttribute("player", player);
+        return "update-item";
+    }
 }
