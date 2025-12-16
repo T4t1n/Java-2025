@@ -35,7 +35,7 @@ public class PlayerController {
     @GetMapping("/edit/{id}")
     public String showUpdateForm(@PathVariable("id") long id, Model model){
         Player player = playerRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Invalid item Id: " + id));
+                .orElseThrow(() -> new IllegalArgumentException("Invalid player Id: " + id));
         model.addAttribute("player", player);
         return "update-item";
     }
@@ -44,6 +44,14 @@ public class PlayerController {
     public String updatePlayer(@PathVariable("id") long id, Player player) {
         player.setId(id);
         playerRepository.save(player);
+        return "redirect:/";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String deleteItem(@PathVariable("id") long id) {
+        Player player = playerRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid player id: " + id));
+        playerRepository.delete(player);
         return "redirect:/";
     }
 }
