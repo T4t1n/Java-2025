@@ -31,6 +31,11 @@ public class User {
     public void setFavoriteColor(String favoriteColor) {
         this.favoriteColor = favoriteColor;
     }
+
+    @Override
+    public String toString() {
+        return" username: " + username + ", favoriteColor: " + favoriteColor;
+    }
     
     
     
